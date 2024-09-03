@@ -1,11 +1,10 @@
 #!/bin/bash
 
-# Install open-source implementation of the Java
-sudo apk add openjdk11
-
 # Change to the Java application directory
-cd /home/vagrant/app
+cd /home/vagrant/app/test
 
-# Compile and run the Java application
-javac MyApp.java
-java MyApp &
+# Compile the application
+mvn clean install
+
+# Run the Java application
+java -jar target/Test.jar # Test app

@@ -1,0 +1,10 @@
+TODO:
+    - make the application
+    - make the database
+
+FIX:
+    - maven build failure therefore there is no JAR to execute
+
+TEST:
+    + test database works
+    - test application doesnt compile on server but does through intellij
