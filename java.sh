@@ -7,4 +7,4 @@ cd /home/vagrant/app/test
 mvn clean install
 
 # Run the Java application
-java -jar target/Test.jar # Test app
+java -jar target/test.jar # Test app

@@ -1,9 +1,7 @@
-# Vagrantfile for hosting a MySQL database and running a Java application on Alpine
+# Vagrantfile for hosting a MySQL database and running a Java application on Ubuntu
 Vagrant.configure("2") do |config|
 
-    # Use Alpine Linux as the base box
-    #config.vm.box = "generic/alpine319"
-    #config.vm.box = "ubuntu/focal64"
+    # Use Ubuntu Linux as the base box
     config.vm.box = "generic/ubuntu2204"
   
     # Set the provider to VirtualBox
@@ -14,10 +12,6 @@ Vagrant.configure("2") do |config|
   
     # Set up the VM hostname
     config.vm.hostname = "java-mysql-server"
-
-    # Set up Login credentials
-    #config.ssh.username = 'root'
-    #config.ssh.password = 'vagrant'
   
     # Network: forward ports 3306 (MySQL) and 8080 (Java app) to host machine
     config.vm.network "forwarded_port", guest: 3306, host: 3306
@@ -32,14 +26,18 @@ Vagrant.configure("2") do |config|
     # Run provision code to update and install distribution packages
     config.vm.provision "shell", inline: <<-SHELL
         sudo apt-get update
-        sudo apt-get install -y mysql-server openjdk-17-jdk maven
+        sudo apt-get install -y mysql-server openjdk-17-jdk maven tree
 
         # Export environment variables for Java and Maven
-        echo 'export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64' >> /home/vagrant/.profile
-        echo 'export PATH=$JAVA_HOME/bin:$PATH' >> /home/vagrant/.profile
-        echo 'export MAVEN_HOME=/usr/share/maven' >> /home/vagrant/.profile
-        echo 'export PATH=$MAVEN_HOME/bin:$PATH' >> /home/vagrant/.profile
-        source /home/vagrant/.profile
+        export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+        export PATH=$JAVA_HOME/bin:$PATH
+        export MAVEN_HOME=/usr/share/maven
+        export PATH=$MAVEN_HOME/bin:$PATH
+        #echo 'export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64' >> /home/vagrant/.profile
+        #echo 'export PATH=$JAVA_HOME/bin:$PATH' >> /home/vagrant/.profile
+        #echo 'export MAVEN_HOME=/usr/share/maven' >> /home/vagrant/.profile
+        #echo 'export PATH=$MAVEN_HOME/bin:$PATH' >> /home/vagrant/.profile
+        #source /home/vagrant/.profile
     SHELL
 
     # Run provision scripts to install and run everything for deployment
