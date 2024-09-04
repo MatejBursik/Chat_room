@@ -3,7 +3,10 @@ TODO:
     - make the database
 
 FIX:
-    - maven build failure therefore there is no JAR to execute
+    - maven build failure therefore there is no JAR to execute (possibilities)
+        - environment variables are wrong
+        - wrong java version installed
+        - wrong method of compilation
 
 TEST:
     + test database works
