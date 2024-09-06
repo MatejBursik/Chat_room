@@ -1,12 +1,20 @@
 # Chat_room
 
 ## Concept
+#### web-app
 - simple chat room application
 - user has to login (can create account)
 - after user login, they see all the chats the are in
 - by clicking on chat they connect to the specific websocket session to have live messaging
 - user can create chats
 - user can join chats by entering the chat ID
+
+#### api
+- all api calls have to be send with credentials (json, path)
+- get number of messages from a chat room /api/get/{chat ID}/{# of messages}
+- send a message to a chat room /api/send/{chat ID}
+- create a chat room /api/create/{chat room name}
+- join a chat room /api/join/{chat ID}
 
 ## learning material
 https://www.youtube.com/watch?v=n6ZqOwreFTA
