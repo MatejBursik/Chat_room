@@ -3,11 +3,3 @@ TODO:
     - make the database
 
 FIX:
-    - maven build failure therefore there is no JAR to execute (possibilities)
-        - environment variables are wrong (not created, wrong path)
-        - wrong java version installed
-        - wrong method of compilation
-
-TEST:
-    + test database works
-    - test application doesnt compile on server but does through intellij

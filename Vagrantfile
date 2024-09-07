@@ -33,11 +33,6 @@ Vagrant.configure("2") do |config|
         export PATH=$JAVA_HOME/bin:$PATH
         export MAVEN_HOME=/usr/share/maven
         export PATH=$MAVEN_HOME/bin:$PATH
-        #echo 'export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64' >> /home/vagrant/.profile
-        #echo 'export PATH=$JAVA_HOME/bin:$PATH' >> /home/vagrant/.profile
-        #echo 'export MAVEN_HOME=/usr/share/maven' >> /home/vagrant/.profile
-        #echo 'export PATH=$MAVEN_HOME/bin:$PATH' >> /home/vagrant/.profile
-        #source /home/vagrant/.profile
     SHELL
 
     # Run provision scripts to install and run everything for deployment

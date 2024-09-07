@@ -34,4 +34,4 @@ https://www.youtube.com/watch?v=wuX2ESOy-Ts
     - `vagrant ssh`
 
 ## Tools
-- project initializer https://start.spring.io/
+- project initializer ([link](https://start.spring.io/))
