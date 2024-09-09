@@ -1,5 +1,8 @@
 TODO:
-    - make the application
     - make the database
+        - UML (class diagram)
+    - make the web-application
+        - pages (login, register, manage account, home, chatroom, create chatroom, manage chatroom)
+    - make the API
 
 FIX:
