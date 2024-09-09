@@ -10,4 +10,4 @@ sudo mysql -u root -prootpassword -e "DROP DATABASE test;"
 sudo mysql -u root -prootpassword -e "FLUSH PRIVILEGES;"
 
 # Run the SQL file to create initial tables
-sudo mysql -u root -prootpassword < /home/vagrant/database/init.sql
+sudo mysql -u root -prootpassword < /home/vagrant/database/dbCreate.sql
