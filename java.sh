@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Change to the Java application directory
-cd /home/vagrant/app/demo
+cd /home/vagrant/app/chatroom
 
 # Compile the application
 mvn clean package
 
 # Run the Java application
-java -jar target/demo-0.0.1-SNAPSHOT.jar # Demo app
+java -jar target/chatroom-0.0.1-SNAPSHOT.jar
