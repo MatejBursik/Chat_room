@@ -3,7 +3,7 @@ TODO:
         - UML (class diagram)
         - init database
     - make the web-application
-        - pages (login, register, manage account, home, chatroom, create chatroom, manage chatroom)
+        - pages (login, register, manage account, index, chatroom, create chatroom, manage chatroom)
     - make the API
 
 FIX:
