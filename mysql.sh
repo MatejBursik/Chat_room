@@ -9,4 +9,4 @@ sudo mysql -u root -prootpassword -e "DELETE FROM mysql.user WHERE User='';"
 sudo mysql -u root -prootpassword -e "FLUSH PRIVILEGES;"
 
 # Run the SQL file to create initial tables
-sudo mysql -u root -prootpassword < /home/vagrant/database/dbCreate.sql
+sudo mysql -u root -prootpassword < /home/vagrant/database/db_init.sql
