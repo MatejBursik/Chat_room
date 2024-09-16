@@ -2,9 +2,26 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Chat room</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Home</title>
 </head>
 <body>
-    <h1>Chat room</h1>
+    <header class="mb-6">
+        <nav class="flex h-16 w-auto bg-white shadow-lg justify-between">
+            <div class="flex w-full justify-between">
+                <div class="flex px-6 w-1/2 text-xl items-center font-semibold font-mono">
+                    <a class="hover:text-lime-500" href="">Chat rooms</a>
+                </div>
+                <div class="flex px-6 w-1/2 items-center justify-end font-semibold font-mono">
+                    <!-- if logged in, change to manage account link -->
+                    <a class="hover:text-lime-500" href="">Login</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <h1>Home page</h1>
+    <!-- list of all the chat rooms that the logged in user is a part of -->
 </body>
 </html>
