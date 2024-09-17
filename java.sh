@@ -6,5 +6,6 @@ cd /home/vagrant/app/chatroom
 # Compile the application
 mvn clean package
 
-# Run the Java application
-java -jar target/chatroom-0.0.1-SNAPSHOT.jar
+# Run the Java application in the background
+# redirects standard error and standard output to the same file
+java -jar target/chatroom-0.0.1-SNAPSHOT.jar > output.log 2>&1 &

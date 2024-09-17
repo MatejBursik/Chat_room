@@ -23,6 +23,8 @@ https://github.com/tushar-prabhu/chat_app-springboot
 https://www.dariawan.com/tutorials/spring/build-chat-application-using-spring-boot-and-websocket/
 https://www.youtube.com/watch?v=wuX2ESOy-Ts
 https://www.youtube.com/watch?v=L9oWG6aj_U8
+https://www.youtube.com/watch?v=rW-fTIVBYt4
+https://picocss.com/docs
 
 ## How to use Vagrant
 - start,stop,destroy
