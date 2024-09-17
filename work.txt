@@ -1,4 +1,5 @@
 TODO:
+    - add a proxy-server (nginx) infront of the web-server
     - make the database
         - UML (class diagram)
         - init database
