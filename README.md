@@ -25,6 +25,7 @@ https://www.youtube.com/watch?v=wuX2ESOy-Ts
 https://www.youtube.com/watch?v=L9oWG6aj_U8
 https://www.youtube.com/watch?v=rW-fTIVBYt4
 https://picocss.com/docs
+https://www.thecodelab.dev/blog/10
 
 ## How to use Vagrant
 - start,stop,destroy
@@ -32,9 +33,9 @@ https://picocss.com/docs
     - `vagrant halt`
     - `vagrant destroy`
 - re-run just that named provision file
-    - `vagrant provision --provision-with java`
+    - `vagrant provision <box_name> --provision-with <provision_name>`
 - server-side troble shooting
-    - `vagrant ssh`
+    - `vagrant ssh <box_name>`
 
 ## Tools
 - project initializer ([link](https://start.spring.io/))

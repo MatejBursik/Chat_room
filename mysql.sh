@@ -1,5 +1,8 @@
 #!/bin/bash
 
+sudo apt-get update
+sudo apt-get install -y mysql-server
+
 # Start MySQL service
 sudo systemctl start mysql
 
