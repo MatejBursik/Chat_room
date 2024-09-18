@@ -1,5 +1,4 @@
 TODO:
-    - add a reverse-proxyserver (nginx) infront of the web-server
     - consider a micro-service for the API RestController
     - make the database
         - UML (class diagram)
@@ -9,3 +8,4 @@ TODO:
     - make the API
 
 FIX:
+    - reverse-proxyserver (nginx) on port 8080, temporarily web- server is no port 8085

@@ -27,6 +27,13 @@ https://www.youtube.com/watch?v=rW-fTIVBYt4
 https://picocss.com/docs
 https://www.thecodelab.dev/blog/10
 
+#### nginx
+- https://nginx.org/en/docs/
+- https://nginx.org/en/docs/http/websocket.html
+- https://nginx.org/en/docs/http/server_names.html
+- https://nginx.org/en/docs/http/load_balancing.html
+- https://nginx.org/en/docs/http/configuring_https_servers.html
+
 ## How to use Vagrant
 - start,stop,destroy
     - `vagrant up`

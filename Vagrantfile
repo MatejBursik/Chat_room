@@ -1,10 +1,14 @@
-# Vagrantfile for hosting a MySQL database and running a Java application on Ubuntu
+# Vagrantfile for running a Java application and hosting a MySQL database with a Nginx reverse-proxy server
 Vagrant.configure("2") do |config|
 
-    ### DB vm  ####
+    # DB vm
     config.vm.define "db" do |db|
-        db.vm.box = "ubuntu/jammy64"
         db.vm.hostname = "db"
+
+        # Use Ubuntu Linux as the base box
+        db.vm.box = "ubuntu/jammy64"
+
+        # Network setting
         db.vm.network "private_network", type: "dhcp"
 
         # Sync the directory containing the initial SQL file to the VM
@@ -19,12 +23,16 @@ Vagrant.configure("2") do |config|
         db.vm.provision "shell", path: "mysql.sh", name: "mysql"
     end
 
-
-    ### WEB vm  ####
+    # WEB vm
     config.vm.define "web" do |web|
-        web.vm.box = "ubuntu/jammy64"
         web.vm.hostname = "web"
+
+        # Use Ubuntu Linux as the base box
+        web.vm.box = "ubuntu/jammy64"
+
+        # Network setting
         web.vm.network "private_network", type: "dhcp"
+        web.vm.network "forwarded_port", guest: 8080, host: 8085
 
         web.vm.provider "virtualbox" do |vb|
             vb.memory = "1024" # Set dedicated memory size
@@ -50,11 +58,14 @@ Vagrant.configure("2") do |config|
         web.vm.provision "shell", path: "java.sh", name: "java"
     end
 
-
-    ### Nginx VM ###
+    # Nginx vm
     config.vm.define "proxy" do |proxy|
-        proxy.vm.box = "ubuntu/jammy64"
         proxy.vm.hostname = "proxy"
+
+        # Use Ubuntu Linux as the base box
+        proxy.vm.box = "ubuntu/jammy64"
+        
+        # Network setting
         proxy.vm.network "private_network", type: "dhcp"
         proxy.vm.network "forwarded_port", guest: 80, host: 8080
 

@@ -9,4 +9,4 @@ CREATE TABLE IF NOT EXISTS users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-INSERT INTO users (username, email) VALUES ('john_doe', 'password1');
+INSERT INTO users (username, password) VALUES ('john_doe', 'password1');
