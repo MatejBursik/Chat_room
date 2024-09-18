@@ -13,3 +13,6 @@ sudo mysql -u root -prootpassword -e "FLUSH PRIVILEGES;"
 
 # Run the SQL file to create initial tables
 sudo mysql -u root -prootpassword < /home/vagrant/database/db_init.sql
+
+# Optional: Run the SQL file to add initial data
+sudo mysql -u root -prootpassword < /home/vagrant/database/data_init.sql
