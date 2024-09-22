@@ -10,4 +10,4 @@ TODO:
         - use case diagram
 
 FIX:
-    - reverse-proxyserver (nginx) on port 8080, temporarily web- server is no port 8085
+    - reverse-proxyserver (nginx) on port 8080, temporarily web-server is no port 8085
