@@ -1,13 +1,10 @@
 TODO:
-    - consider a micro-service for the API RestController
-    - make the database
-        - init database
     - make the web-application
         - pages (login, register, manage account, index, chatroom, create chatroom, manage chatroom)
-    - make the API
-    - UML
+    - make the APIs
+        - API for each Use case
+    - documentation
         - class diagram
         - use case diagram
 
 FIX:
-    - reverse-proxyserver (nginx) on port 8080, temporarily web-server is no port 8085

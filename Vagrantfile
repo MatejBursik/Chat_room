@@ -32,7 +32,7 @@ Vagrant.configure("2") do |config|
 
         # Network setting
         web.vm.network "private_network", type: "dhcp"
-        web.vm.network "forwarded_port", guest: 8080, host: 8085
+        web.vm.network "forwarded_port", guest: 8080, host: 8080
 
         web.vm.provider "virtualbox" do |vb|
             vb.memory = "1024" # Set dedicated memory size
@@ -56,25 +56,5 @@ Vagrant.configure("2") do |config|
 
         # Run provision scripts to install and run everything for deployment
         web.vm.provision "shell", path: "java.sh", name: "java"
-    end
-
-    # Nginx vm
-    config.vm.define "proxy" do |proxy|
-        proxy.vm.hostname = "proxy"
-
-        # Use Ubuntu Linux as the base box
-        proxy.vm.box = "ubuntu/jammy64"
-        
-        # Network setting
-        proxy.vm.network "private_network", type: "dhcp"
-        proxy.vm.network "forwarded_port", guest: 80, host: 8080
-
-        proxy.vm.provider "virtualbox" do |vb|
-            vb.memory = "1024" # Set dedicated memory size
-            vb.cpus = 1        # Set dedicated number of CPU cores
-        end
-
-        # Run provision scripts to install and run everything for deployment
-        proxy.vm.provision "shell", path: "nginx.sh", name: "nginx"
     end
 end
