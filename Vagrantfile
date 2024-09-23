@@ -11,16 +11,51 @@ Vagrant.configure("2") do |config|
         # Network setting
         db.vm.network "private_network", type: "dhcp"
 
-        # Sync the directory containing the initial SQL file to the VM
-        db.vm.synced_folder "./database", "/home/vagrant/database"
-
         db.vm.provider "virtualbox" do |vb|
             vb.memory = "1024" # Set dedicated memory size
             vb.cpus = 1        # Set dedicated number of CPU cores
         end
 
+        # Sync the directory containing the initial SQL file to the VM
+        db.vm.synced_folder "./database", "/home/vagrant/database"
+
         # Run provision scripts to install and run everything for deployment
         db.vm.provision "shell", path: "mysql.sh", name: "mysql"
+    end
+
+    # API vm
+    config.vm.define "api" do |api|
+        api.vm.hostname = "api"
+
+        # Use Ubuntu Linux as the base box
+        api.vm.box = "ubuntu/jammy64"
+
+        # Network setting
+        api.vm.network "private_network", type: "dhcp"
+        api.vm.network "forwarded_port", guest: 8080, host: 8085
+
+        api.vm.provider "virtualbox" do |vb|
+            vb.memory = "1024" # Set dedicated memory size
+            vb.cpus = 1        # Set dedicated number of CPU cores
+        end
+
+        # Sync the directory containing Java application to the VM
+        api.vm.synced_folder "./app/chat_room_api", "/home/vagrant/app"
+
+        # Run provision code to update and install distribution packages
+        api.vm.provision "shell", inline: <<-SHELL
+            sudo apt-get update
+            sudo apt-get install -y openjdk-17-jdk maven tree
+
+            # Export environment variables for Java and Maven
+            export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+            export PATH=$JAVA_HOME/bin:$PATH
+            export MAVEN_HOME=/usr/share/maven
+            export PATH=$MAVEN_HOME/bin:$PATH
+        SHELL
+
+        # Run provision scripts to install and run everything for deployment
+        api.vm.provision "shell", path: "api.sh", name: "api"
     end
 
     # WEB vm
@@ -40,7 +75,7 @@ Vagrant.configure("2") do |config|
         end
 
         # Sync the directory containing Java application to the VM
-        web.vm.synced_folder "./app", "/home/vagrant/app"
+        web.vm.synced_folder "./app/chat_room_web", "/home/vagrant/app"
 
         # Run provision code to update and install distribution packages
         web.vm.provision "shell", inline: <<-SHELL
@@ -55,6 +90,6 @@ Vagrant.configure("2") do |config|
         SHELL
 
         # Run provision scripts to install and run everything for deployment
-        web.vm.provision "shell", path: "java.sh", name: "java"
+        web.vm.provision "shell", path: "web.sh", name: "web"
     end
 end
