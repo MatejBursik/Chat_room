@@ -1,10 +1,10 @@
-package com.mb.chatroom;
+package com.web.chat_room;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ChatroomApplicationTests {
+class ChatRoomApplicationTests {
 
 	@Test
 	void contextLoads() {

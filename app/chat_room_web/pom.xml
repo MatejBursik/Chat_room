@@ -8,21 +8,17 @@
 		<version>2.6.6</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.mb</groupId>
-	<artifactId>chatroom</artifactId>
+	<groupId>com.web</groupId>
+	<artifactId>chat_room</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>chatroom</name>
-	<description>Chat room application</description>
+	<name>chat_room</name>
+	<description>Web server for the Chat room application</description>
+	
 	<properties>
 		<java.version>17</java.version>
-		<hibernate.version>5.6.5.Final</hibernate.version>
 	</properties>
 
 	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
@@ -32,11 +28,6 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
-		<dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <scope>runtime</scope>
-        </dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>

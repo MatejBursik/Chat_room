@@ -1,13 +1,13 @@
-package com.mb.chatroom;
+package com.api.chat_room;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ChatroomApplication {
+public class ChatRoomApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ChatroomApplication.class, args);
+		SpringApplication.run(ChatRoomApplication.class, args);
 	}
 
 }
