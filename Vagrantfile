@@ -19,8 +19,28 @@ Vagrant.configure("2") do |config|
         # Sync the directory containing the initial SQL file to the VM
         db.vm.synced_folder "./database", "/home/vagrant/database"
 
-        # Run provision scripts to install and run everything for deployment
+        # Run provision scripts to install
+        db.vm.provision "shell", inline: <<-SHELL
+            sudo apt-get update
+            sudo apt-get install -y mysql-server
+            echo "#ship-external-locking" | sudo tee -a /etc/mysql/my.cnf > /dev/null
+            echo "#bind-address" | sudo tee -a /etc/mysql/my.cnf > /dev/null
+        SHELL
+
+        # Start the MySQL service
         db.vm.provision "shell", path: "mysql.sh", name: "mysql"
+
+        # Run provision scripts to update permissions
+        db.vm.provision "shell", inline: <<-SHELL
+            # Set root password and apply security settings
+            sudo mysql -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH 'mysql_native_password' BY 'rootpassword';"
+
+            # Run the SQL file to create initial tables
+            sudo mysql -u root -prootpassword < /home/vagrant/database/db_init.sql
+
+            # Optional: Run the SQL file to add initial data
+            sudo mysql -u root -prootpassword < /home/vagrant/database/data_init.sql
+        SHELL
     end
 
     # API vm
