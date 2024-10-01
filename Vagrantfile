@@ -9,7 +9,7 @@ Vagrant.configure("2") do |config|
         db.vm.box = "ubuntu/jammy64"
 
         # Network setting
-        db.vm.network "private_network", ip: "10.0.0.36"
+        db.vm.network "forwarded_port", guest: 3306, host: 3306
 
         db.vm.provider "virtualbox" do |vb|
             vb.memory = "1024" # Set dedicated memory size
@@ -51,7 +51,6 @@ Vagrant.configure("2") do |config|
         api.vm.box = "ubuntu/jammy64"
 
         # Network setting
-        api.vm.network "private_network", ip: "10.0.0.3"
         api.vm.network "forwarded_port", guest: 8080, host: 8085
 
         api.vm.provider "virtualbox" do |vb|
@@ -75,7 +74,7 @@ Vagrant.configure("2") do |config|
         SHELL
 
         # Run provision scripts to update the db ip in application.properties
-        api.vm.provision "shell", path: "db_ip.sh", name: "db_ip", env: {"DB_IP" => "10.0.0.36"}, run: "always"
+        #api.vm.provision "shell", path: "db_ip.sh", name: "db_ip", env: {"DB_IP" => "10.0.0.36"}, run: "always"
 
         # Run provision scripts to install and run everything for deployment
         api.vm.provision "shell", path: "api.sh", name: "api", run: "always"
@@ -89,7 +88,6 @@ Vagrant.configure("2") do |config|
         web.vm.box = "ubuntu/jammy64"
 
         # Network setting
-        web.vm.network "private_network", ip: "10.0.0.2"
         web.vm.network "forwarded_port", guest: 8080, host: 8080
 
         web.vm.provider "virtualbox" do |vb|
